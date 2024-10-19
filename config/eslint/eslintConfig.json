@@ -4,5 +4,13 @@
     "@babbel/eslint-config/typescript",
     "@babbel/eslint-config/jsdoc-typescript",
     "@babbel/eslint-config/node"
+  ],
+  "overrides": [
+    {
+      "files": ["./src/http2ReverseProxyServer.mts"],
+      "rules": {
+        "n/hashbang": "off"
+      }
+    }
   ]
 }
