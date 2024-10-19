@@ -1,6 +1,6 @@
 {
   "name": "@mangs/http2-secure-reverse-proxy-nodejs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Eric Goldstein",
   "description": "HTTP2-based reverse proxy server using Node.js and TLS (no dependencies)",
   "engines": {
@@ -22,15 +22,17 @@
     "tls"
   ],
   "files": [
+    "./dist",
     "./src"
   ],
   "bin": {
-    "h2rproxy": "./src/http2ReverseProxyServer.mts"
+    "h2rproxy": "./dist/server.min.mjs"
   },
   "exports": {
-    ".": "./src/http2ReverseProxyServer.mts"
+    ".": "./dist/server.min.mjs"
   },
   "scripts": {
+    "build": "rm -rf dist && bun build --entry-naming=server.min.mjs --format=esm --minify --outdir=dist --sourcemap=linked --target=node src/http2ReverseProxyServer.mts",
     "check:environment": "bun run --silent check:environment:symlinks && bun run --silent check:environment:versions",
     "check:environment:symlinks": "check-environment-symlinks",
     "check:environment:versions": "check-environment-versions",
