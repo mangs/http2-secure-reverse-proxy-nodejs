@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: "1.1.27"
+          bun-version: "1.1.37"
       - run: bun run build
       - uses: mangs/simple-release-notes-action@v3
         with:
