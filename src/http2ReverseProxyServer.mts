@@ -91,9 +91,7 @@ createSecureServer(serverOptions, async (request, response) => {
   }
   const responseBody = responseContentType.startsWith('text/')
     ? await proxyResponse.text()
-    : // @ts-expect-error -- Response.prototype.bytes() exists in the runtime environment, missing from type definition
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call -- Response.prototype.bytes() exists in the runtime environment, missing from type definition
-      ((await proxyResponse.bytes()) as Uint8Array);
+    : await proxyResponse.bytes();
   response.writeHead(proxyResponse.status, proxyResponse.statusText);
   response.end(responseBody);
 }).listen(port, () => {
