@@ -4,7 +4,7 @@
   "author": "Eric Goldstein",
   "description": "HTTP2-based reverse proxy server using Node.js and TLS (no dependencies)",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.11.0"
   },
   "packageManager": "bun@1.1.37",
   "homepage": "https://github.com/mangs/http2-secure-reverse-proxy-nodejs#readme",
